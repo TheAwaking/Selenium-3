@@ -7,4 +7,4 @@ class PageBase:
         self.wait = WebDriverWait(driver, 10, poll_frequency=1)
 
     def open(self):
-        self.driver.open()
+        self.driver.get("https://the-internet.herokuapp.com/")

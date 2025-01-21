@@ -1,9 +1,8 @@
 import json
-
 import pytest
 from browser.browser_factory import DriverFactory
 
-CONFIG_PATH = "config.json"
+CONFIG_PATH = "../config.json"
 DEFAULT_WAIT_TIME = 20
 SUPPORTED_BROWSERS = ["chrome"]
 DEFAULT_URL = "https://the-internet.herokuapp.com/"
@@ -37,7 +36,6 @@ def url_setup(config):
 @pytest.fixture()
 def setup(request, config):
     driver = DriverFactory.get_driver(config)
-    driver.implicitly_wait(config["timeout"])
     request.cls.driver = driver
-    before_failed = request.session.testsfailed
+    yield
     driver.quit()

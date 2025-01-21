@@ -3,6 +3,7 @@ from selenium import webdriver
 from base.base_page import PageBase
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.alert import Alert
 
 
 class LogInPage(PageBase):
@@ -15,10 +16,11 @@ class LogInPage(PageBase):
     def open_basic_auth(self):
         self.wait.until(EC.visibility_of_element_located(self.AUTH))  # переход на страницу алерта
 
-    def sing_in(self):
-        self.wait.until(EC.alert_is_present(self.AUTH))
-        alert = self.driver.switch_to.alert
+    def sing_in(self, driver):
+        alert = Alert(driver)
+
         alert.send_keys("admin")
+        alert.send_keys("\t")
         alert.send_keys("admin")
         alert.accept()
 
