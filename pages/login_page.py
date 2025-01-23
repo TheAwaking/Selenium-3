@@ -13,9 +13,5 @@ class LogInPage(PageBase):
     def basic_auth(self):
         self.wait.until(EC.visibility_of_element_located(self.AUTH)).click()
 
-    def submit_alert(self):
-        self.driver.get(
-            "http://admin:admin@the-internet.herokuapp.com/basic_auth")
-
     def validate_credentials(self):
         self.wait.until(EC.visibility_of_element_located(self.CRED))

@@ -23,17 +23,17 @@ def browser_setup(config):
     return config["browser"]
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope='session')  # прописать wait time
 def wait_time_setup(config):
     return config['wait_time'] if 'wait_time' in config else DEFAULT_WAIT_TIME
 
 
 @pytest.fixture(scope='session')
 def url_setup(config):
-    return config["base_url"] if "base_url" in config else DEFAULT_URL
+    return config["hero_url"] if "hero_url" in config else DEFAULT_URL
 
 
-@pytest.fixture()
+@pytest.fixture(scope="class")
 def setup(request, config):
     driver = DriverFactory.get_driver(config)
     request.cls.driver = driver
