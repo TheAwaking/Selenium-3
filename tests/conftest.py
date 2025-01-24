@@ -23,7 +23,7 @@ def browser_setup(config):
     return config["browser"]
 
 
-@pytest.fixture(scope='session')  # прописать wait time
+@pytest.fixture(scope='session')
 def wait_time_setup(config):
     return config['wait_time'] if 'wait_time' in config else DEFAULT_WAIT_TIME
 

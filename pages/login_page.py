@@ -1,9 +1,9 @@
 from base.base_page import PageBase
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
+from base_elements.base_element import BaseElement
 
 
-class LogInPage(PageBase):
+class LogInPage(BaseElement, PageBase):
     AUTH = (By.XPATH, "//a[contains(text(), 'Basic Auth')]")
     CRED = (By.XPATH, "//p[contains(text(), 'Congratulations!')]")
 
@@ -11,7 +11,7 @@ class LogInPage(PageBase):
         super().__init__(driver)
 
     def basic_auth(self):
-        self.wait.until(EC.visibility_of_element_located(self.AUTH)).click()
+        self.element_is_clickable(self.AUTH).click()
 
     def validate_credentials(self):
-        self.wait.until(EC.visibility_of_element_located(self.CRED))
+        self.visibility_of_element_located(self.CRED)

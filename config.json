@@ -2,5 +2,5 @@
   "browser": "chrome",
   "headless_mode": false,
   "hero_url": "https://the-internet.herokuapp.com/",
-  "timeout": 20
+  "wait_time": 20
 }
