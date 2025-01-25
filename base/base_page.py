@@ -15,4 +15,4 @@ class PageBase:
         self.driver.get(self.hero_url)
 
     def cred_alert(self):
-        self.driver.get("http://admin:admin@the-internet.herokuapp.com/basic_auth/")
+        self.driver.get("http://admin:admin@the-internet.herokuapp.com/basic_auth/")   # прятать этот урл или так оставить?

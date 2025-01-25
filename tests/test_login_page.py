@@ -12,4 +12,7 @@ class TestLogIn:
         log_in_page.open()
         log_in_page.basic_auth()
         log_in_page.cred_alert()
-        log_in_page.validate_credentials()
+        result_text = log_in_page.validate_credentials()
+        expected_alert_text = "Basic Auth\nCongratulations! You must have the proper credentials."
+
+        assert expected_alert_text == result_text, f"Expected alert text: '{expected_alert_text}', but got: '{result_text}'"
