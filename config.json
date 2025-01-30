@@ -1,6 +1,0 @@
-{
-  "browser": "chrome",
-  "headless_mode": false,
-  "hero_url": "https://the-internet.herokuapp.com/",
-  "wait_time": 20
-}
