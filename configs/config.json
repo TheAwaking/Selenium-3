@@ -1,0 +1,9 @@
+{
+  "browser": ["chrome", "firefox"],
+  "hero_url": "https://the-internet.herokuapp.com/",
+  "wait_time": 20,
+  "browser_options": {
+    "start_maximized": true,
+    "headless": false
+  }
+}
