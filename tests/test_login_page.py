@@ -1,6 +1,5 @@
 import pytest
 from pages.login_page import LogInPage
-
 from tests.conftest import setup
 
 
