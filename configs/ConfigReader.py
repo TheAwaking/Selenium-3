@@ -2,7 +2,9 @@ import json
 
 
 class ConfigReader:
-    CONFIG_PATH = "config/config.json"
+    CONFIG_PATH = "configs/config.json"
+    BASE_URL = "https://the-internet.herokuapp.com/"
+    SUPPORTED_BROWSERS = ["chrome", "firefox"]
 
     def __init__(self, config_path=CONFIG_PATH):
         self.config_path = config_path
@@ -14,3 +16,6 @@ class ConfigReader:
 
     def get_value(self, key):
         return self.config_data.get(key)
+
+    def get_supported_browsers(self):
+        return self.SUPPORTED_BROWSERS

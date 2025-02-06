@@ -1,15 +1,15 @@
-import json
-from utils.url_utils import add_basic_auth_to_url
+from selenium.webdriver.support.ui import WebDriverWait as wait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 
 
 class BasePage:
-    def __init__(self, driver):
-        self.driver = driver
-        with open('../configs/config.json') as config_file:
-            config = json.load(config_file)
-            self.hero_url = config["hero_url"]
-            self.timeout = config["wait_time"]
+    UNIQUE_ELEMENT_LOC = None
 
-    def cred_alert(self, base_url, username, password):
-        auth_url = add_basic_auth_to_url(base_url, username, password)
-        self.driver.get(auth_url)
+    def __init__(self, driver, name):
+        self.wait = None
+        self.driver = driver
+        self.name = None
+
+    def wait_for_open(self):
+        self.wait.until(EC.presence_of_element_located(By.XPATH, self.UNIQUE_ELEMENT_LOC))

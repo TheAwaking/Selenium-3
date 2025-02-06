@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from enum import StrEnum
+from selenium.webdriver.support.wait import WebDriverWait
 
 
 class BrowserName(StrEnum):
@@ -24,4 +25,5 @@ class DriverFactory:
 
             driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
             return driver
-        raise ValueError("Provide valid browser name")
+        available_browsers = [name.value for name in BrowserName]
+        raise ValueError(f"Provide valid browser name. Available browsers: {', '.join(available_browsers)}")
